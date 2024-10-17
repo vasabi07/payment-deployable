@@ -14,7 +14,7 @@ export const usersListAtom = atom({
     key: "usersListAtomSelector",
     get: async () => {
       const token = getToken();
-      const response = await axios.get("https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/users/allusers", {
+      const response = await axios.get("https://paymentbackend.vasprojects.com/api/users/allusers", {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -32,7 +32,7 @@ export const personalInfoAtom = atom({
     key: "personalInfoAtomSelector",
     get: async () => {
       const token = getToken();
-      const response = await axios.get("https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/personalInfo", {
+      const response = await axios.get("https://paymentbackend.vasprojects.com/api/personalInfo", {
         headers: {
           Authorization: `Bearer ${token}`
         },
@@ -49,7 +49,7 @@ export const transactionHistoryAtom = atom({
     key: "transactionHistoryAtomSelector",
     get: async () => {
       const token = getToken();
-      const response = await axios.get("https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/history", {
+      const response = await axios.get("https://paymentbackend.vasprojects.com/api/history", {
         headers: {
           Authorization: `Bearer ${token}`
         },

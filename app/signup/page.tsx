@@ -17,7 +17,7 @@ const Signup = () => {
     const HandleSubmit =async (e: React.FormEvent)=>{
         e.preventDefault();
         try {
-            const response =await axios.post("https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/signup",data);
+            const response =await axios.post("https://paymentbackend.vasprojects.com/api/signup",data);
             if(response.status===201){
                 router.push("/signin");
             }

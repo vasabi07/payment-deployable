@@ -20,7 +20,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/signin",
+        "https://paymentbackend.vasprojects.com/api/signin",
         data,
         {
           withCredentials: true,

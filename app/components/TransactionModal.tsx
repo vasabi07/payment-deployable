@@ -44,7 +44,7 @@ const TransactionModal = ({
         return console.log("token has'nt reached post request");
       }
       const response = await axios.post(
-        "https://payment-backend-lb-340135517.ap-southeast-2.elb.amazonaws.com/api/transfer",
+        "https://paymentbackend.vasprojects.com/api/transfer",
         {
           receiverId: receiverId.toString(),
           amount: money,
