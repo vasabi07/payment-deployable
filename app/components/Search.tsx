@@ -37,7 +37,7 @@ const Search = () => {
     }
   }, [usersList,searchTerm]);
   if (usersList.state === "loading") {
-    return <div><Skeleton className="w-full h-screen rounded-full bg-stone-300" />
+    return <div><Skeleton className="w-full rounded-full bg-stone-300" />
 </div>;
   } else if (usersList.state === "hasValue") {
     return (

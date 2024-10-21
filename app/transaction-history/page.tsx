@@ -16,7 +16,7 @@ const TransactionHistory = () => {
   const history = useRecoilValueLoadable<tHistory[]>(transactionHistoryAtom);
 
   if (history.state === "loading") {
-    return <div><Skeleton className="w-full h-screen rounded-full bg-stone-300" />
+    return <div><Skeleton className="w-full rounded-full bg-stone-300" />
 </div>;
   } else if (history.state === "hasError") {
     return <div>there was an error getting details</div>;
