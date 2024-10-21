@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/src/components/ui/button";
+import { toast } from "@/src/hooks/use-toast";
 import axios from "axios";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -29,6 +29,11 @@ const Signin = () => {
       localStorage.setItem("token", response.data.token);
       console.log(response.data);
       if (response.status === 200) {
+        toast({
+          title: "Success",
+          description: "successfully logged in",
+          className:  "bg-black text-stone-200 p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-xs shadow-lg",
+        });
         router.push("/");
       }
     } catch (error) {
@@ -36,15 +41,15 @@ const Signin = () => {
     }
   };
   return (
-    <div className="flex h-screen">
-      <div className="flex flex-1 justify-center items-center border-2">
+    <div className="flex h-screen flex-col md:flex-row">
+      <div className="w-full h-auto flex flex-1 justify-center items-center border-2">
         <img src="https://i.pinimg.com/564x/c9/4d/57/c94d57ef1a4a3a8dd0b9cd2392a0cc6f.jpg" alt="payment-img"/>
       </div>
       <div className="flex  flex-1 justify-center items-center ">
-        <div className=" flex p-2 w-[300px] h-[320px] flex-col border-2 ">
+        <div className=" flex p-2 w-[350px] h-[320px]  flex-col border-2 rounded-md shadow-md">
           <h1 className="text-4xl">Signin</h1>
           <form
-            className="flex flex-col justify-between p-2 gap-2"
+            className="flex flex-col justify-between p-2 gap-3 mb-4 "
             onSubmit={HandleSubmit}
           >
             <input
@@ -63,14 +68,14 @@ const Signin = () => {
               placeholder="Password"
               onChange={HandleChange}
             />
-            <button className="px-4 py-2 bg-slate-600 text-white" type="submit">
+            <Button className="px-4 py-2 bg-slate-600 text-white rounded-md hover:bg-slate-800" type="submit">
               Submit
-            </button>
+            </Button>
           </form>
           <span className="text-md">
             Don't have an account? signup here.{" "}
-            <Link className="px-4 py-2 bg-slate-600 text-white" href="/signup">
-              <Button>SignUp</Button>
+            <Link className="p-1 rounded-md hover:bg-stone-400 text-stone-700 bg-stone-300" href="/signup">
+              SignUp
             </Link>
           </span>
         </div>

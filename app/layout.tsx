@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { RecoilRoot } from "recoil";
 import { usePathname } from "next/navigation";
+import { Toaster } from "@/src/components/ui/toaster"
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster/>
         {isExcluded ? <>
         {children} </>: 
         <RecoilRoot>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import TransactionModal from "./TransactionModal";
 import { useRecoilValueLoadable } from "recoil";
 import { usersListAtom } from "./atoms";
+import { Skeleton } from "@/src/components/ui/skeleton";
 
 type User = {
   id: string;
@@ -36,7 +37,8 @@ const Search = () => {
     }
   }, [usersList,searchTerm]);
   if (usersList.state === "loading") {
-    return <div>loading...</div>;
+    return <div><Skeleton className="w-full h-screen rounded-full bg-stone-300" />
+</div>;
   } else if (usersList.state === "hasValue") {
     return (
       <div className="p-2 flex flex-col justify-center items-center">
