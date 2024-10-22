@@ -2,13 +2,25 @@ import { Button } from "@/src/components/ui/button";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { useResetRecoilState } from "recoil";
+import {
+  personalInfoAtom,
+  transactionHistoryAtom,
+  usersListAtom,
+} from "./atoms";
 
 const Navbar = () => {
   const router = useRouter();
-  const HandleLogout =async ()=>{
-   localStorage.removeItem("token");
-   router.push("/signin");
-  }
+  const resetUsersList = useResetRecoilState(usersListAtom);
+  const resetPersonalInfo = useResetRecoilState(personalInfoAtom);
+  const resetTransactionHistory = useResetRecoilState(transactionHistoryAtom);
+  const HandleLogout = async () => {
+    localStorage.removeItem("token");
+    resetUsersList();
+    resetPersonalInfo();
+    resetTransactionHistory();
+    router.push("/signin");
+  };
   return (
     <div className="flex px-2 items-center justify-between bg-blue-100 shadow-md  h-16 border  top-0 z-50">
       <div
@@ -42,7 +54,10 @@ const Navbar = () => {
         >
           Transaction History
         </Link>
-        <Button className="rounded-sm hover:bg-blue-200 p-2" onClick={HandleLogout} >
+        <Button
+          className="rounded-sm hover:bg-blue-200 p-2"
+          onClick={HandleLogout}
+        >
           Logout
         </Button>
       </div>
