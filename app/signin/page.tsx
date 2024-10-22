@@ -28,7 +28,7 @@ const Signin = () => {
       );
       
       console.log(response.data);
-      if (response.status === 200) {
+      if (response.status === 200 && response.data.token) {
         localStorage.setItem("token", response.data.token);
         toast({
           title: "Success",
@@ -42,10 +42,15 @@ const Signin = () => {
           description: "Issue with login",
           className:  "bg-black text-stone-200 p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-sm shadow-lg",
         });
-        router.push("/signin");
+       
       }
     } catch (error) {
       console.log(error);
+      toast({
+        title: "Error",
+        description: "There was an issue with the login process",
+        className: "bg-red-600 text-white p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-sm shadow-lg",
+      });
     }
   };
   return (
