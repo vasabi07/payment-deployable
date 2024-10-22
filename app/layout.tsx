@@ -19,7 +19,7 @@ export default function RootLayout({
   const isExcluded = excludedRoutes.includes(pathname);
   return (
     <html lang="en">
-      <body>
+      <body >
         <Toaster/>
         {isExcluded ? <>
         {children} </>: 

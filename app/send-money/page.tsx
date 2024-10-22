@@ -3,7 +3,7 @@ import React from 'react'
 
 const SendMoney = () => {
   return (
-    <div>
+    <div className="bg-green-50">
         <Search/>
     </div>
   )

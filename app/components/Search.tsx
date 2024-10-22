@@ -29,7 +29,7 @@ const Search = () => {
       } else {
         const filter = usersList.contents.filter(
           (user) =>
-            user.name.toLowerCase().includes(searchTerm) ||
+            user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             user.phone.includes(searchTerm)
         );
         setFilteredData(filter);
@@ -37,7 +37,7 @@ const Search = () => {
     }
   }, [usersList,searchTerm]);
   if (usersList.state === "loading") {
-    return <div><Skeleton className="w-full rounded-full bg-stone-300" />
+    return <div><Skeleton className="w-full h-[300px] rounded-full bg-green-800" />
 </div>;
   } else if (usersList.state === "hasValue") {
     return (

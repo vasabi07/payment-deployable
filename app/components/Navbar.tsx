@@ -22,7 +22,7 @@ const Navbar = () => {
     router.push("/signin");
   };
   return (
-    <div className="flex px-2 items-center justify-between bg-blue-100 shadow-md  h-16 border  top-0 z-50">
+    <div className="flex px-2 items-center justify-between bg-green-200 shadow-md  h-16 border  top-0 z-50">
       <div
         onClick={() => router.push("/")}
         className="flex items-center gap-2 text-xl cursor-pointer hover:bg-blue-300 p-2  "

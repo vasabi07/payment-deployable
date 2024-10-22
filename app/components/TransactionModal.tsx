@@ -11,12 +11,6 @@ import {
 import { Button } from "@/src/components/ui/button";
 import { useRecoilValue } from "recoil";
 import { getToken, personalInfoAtom } from "./atoms";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/src/components/ui/input-otp"
 
 const TransactionModal = ({
   receiverId,
@@ -109,14 +103,15 @@ const TransactionModal = ({
       )}
       <div className=" w-full bg-blue-200 ">
         {processing && (
-          <>
-            <div className="p-2 ">
+          <div className="bg-green-100 shadow-lg  ">
+            <div className="p-2 text-xl  ">
               your transaction is being processed.
               <br /> close the modal and go to TransactionHistory page to see
               the result.
             </div>
             <div>
-              <Button
+              <Button 
+              className="p-2"
                 onClick={() => {
                   setProcessing(false);
                   onClose();
@@ -125,7 +120,7 @@ const TransactionModal = ({
                 Close
               </Button>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

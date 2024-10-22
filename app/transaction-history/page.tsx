@@ -26,13 +26,13 @@ const TransactionHistory = () => {
   const history = useRecoilValueLoadable<tHistory[]>(transactionHistoryAtom);
 
   if (history.state === "loading") {
-    return <div><Skeleton className="w-full rounded-full bg-stone-300" />
+    return <div><Skeleton className="w-full h-[300px] rounded-full bg-green-800" />
 </div>;
   } else if (history.state === "hasError") {
     return <div>there was an error getting details</div>;
   } else if (history.state === "hasValue") {
     return (
-      <div>
+      <div className="bg-green-50">
          <div className="  flex justify-end m-2 items-center   ">
         <div className="flex flex-col shadow-md justify-center items-center w-[188px] h-[200px] border-2 bg-blue-100 ">
         <Avatar>
