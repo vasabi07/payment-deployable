@@ -26,15 +26,23 @@ const Signin = () => {
           withCredentials: true,
         }
       );
-      localStorage.setItem("token", response.data.token);
+      
       console.log(response.data);
       if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
         toast({
           title: "Success",
           description: "successfully logged in",
           className:  "bg-black text-stone-200 p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-xs shadow-lg",
         });
         router.push("/");
+      }else{
+        toast({
+          title: "Failure",
+          description: "Issue with login",
+          className:  "bg-black text-stone-200 p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-sm shadow-lg",
+        });
+        router.push("/signin");
       }
     } catch (error) {
       console.log(error);
