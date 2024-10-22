@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
-  const excludedRoutes = ["/signin", "/signup"];
+  const excludedRoutes = ["/signin", "/signup", "/"];
 
   const isExcluded = excludedRoutes.includes(pathname);
   return (

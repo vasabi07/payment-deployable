@@ -35,7 +35,7 @@ const Signin = () => {
           description: "successfully logged in",
           className:  "bg-black text-stone-200 p-2 rounded-md m-2 fixed bottom-4 right-4 w-auto max-w-xs shadow-lg",
         });
-        router.push("/");
+        router.push("/send-money");
       }else{
         toast({
           title: "Failure",
@@ -54,13 +54,13 @@ const Signin = () => {
     }
   };
   return (
-    <div className="flex h-screen flex-col md:flex-row">
-      <div className="w-full h-auto flex flex-1 justify-center items-center border-2">
-        <img src="https://i.pinimg.com/564x/c9/4d/57/c94d57ef1a4a3a8dd0b9cd2392a0cc6f.jpg" alt="payment-img"/>
+    <div className="flex h-screen flex-col md:flex-row bg-green-50">
+      <div className="w-full h-auto flex  flex-1 justify-center items-center border-2">
+        <img className="rounded-2xl" src="https://i.pinimg.com/564x/c9/4d/57/c94d57ef1a4a3a8dd0b9cd2392a0cc6f.jpg" alt="payment-img"/>
       </div>
       <div className="flex  flex-1 justify-center items-center ">
-        <div className=" flex p-2 w-[350px] h-[320px]  flex-col border-2 rounded-md shadow-md">
-          <h1 className="text-4xl">Signin</h1>
+        <div className=" flex p-2 w-[350px] h-[320px] bg-stone-50  flex-col border-2 rounded-md shadow-md">
+          <h1 className="text-4xl flex justify-center items-center">Login</h1>
           <form
             className="flex flex-col justify-between p-2 gap-3 mb-4 "
             onSubmit={HandleSubmit}
