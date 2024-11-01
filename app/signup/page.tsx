@@ -44,7 +44,7 @@ const Signup = () => {
             <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600  ' name='name' value={data.name} type="text" placeholder='Name' onChange={HandleChange} />
             <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 ' name='phone' value={data.phone} type="phone" placeholder='Phone' onChange={HandleChange} />
             <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 ' name='email' value={data.email} type="email" placeholder='Email' onChange={HandleChange}/>
-            <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 ' name='password' value={data.password} type="text" placeholder='Password' onChange={HandleChange} />
+            <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 ' name='password' value={data.password} type="password" placeholder='Password' onChange={HandleChange} />
             <input className='py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 ' name='pin' value={data.pin} type="text" placeholder='Enter a 4 digit pin for transactions' onChange={HandleChange} />
             <button className='px-4 py-2 bg-slate-600 text-white rounded-md hover:bg-slate-800' type='submit' >Submit</button>
         </form>

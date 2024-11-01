@@ -35,7 +35,7 @@ const TransactionModal = ({
       console.log({ receiverId, amount: money });
       const token = getToken();
       if (!token) {
-        return console.log("token has'nt reached post request");
+        return console.log("Token hasn't reached post request");
       }
       const response = await axios.post(
         "https://paymentbackend.vasprojects.com/api/transfer",
@@ -56,42 +56,43 @@ const TransactionModal = ({
       }
       console.log(response);
     } catch (error) {
-      console.log("transaction failed at the frontend", error);
+      console.log("Transaction failed at the frontend", error);
     }
   };
 
   return (
     <div>
       {!processing && (
-        <Card className="flex flex-col gap-2 bg-gray-100 ">
-          <CardHeader className="flex justify-center items-center pt-2 text-xl ">
+        <Card className="flex flex-col gap-2 bg-green-50 shadow-md rounded-lg">
+          <CardHeader className="flex justify-center items-center pt-2 text-xl text-gray-800">
             <CardTitle>Enter the amount below</CardTitle>
           </CardHeader>
-          <form className="flex flex-col justify-between p-2 gap-2">
+          <form className="flex flex-col justify-between p-4 gap-4">
             <CardContent>
               <Input
                 name="amount"
                 type="number"
-                className="p-2 outline-none focus:border-slate-900"
+                className="p-2 outline-none focus:border-stone-400 focus:ring focus:ring-stone-200"
                 onChange={(e) => setMoney(parseFloat(e.target.value))}
                 placeholder="Amount"
               />
             </CardContent>
             <CardContent>Enter your PIN below</CardContent>
             <CardContent>
-              {" "}
               <Input
-                name="amount"
-                type="number"
-                className="p-2 outline-none focus:border-slate-900"
+                name="pin"
+                type="password" // Changed to password input for better security
+                className="p-2 outline-none focus:border-stone-400 focus:ring focus:ring-stone-200"
                 onChange={(e) => setUserPin(e.target.value)}
-                placeholder="Amount"
+                placeholder="PIN"
               />
             </CardContent>
-            <CardContent>You are sending money to:{receiverName}</CardContent>
+            <CardContent className="text-gray-700">
+              You are sending money to: <strong>{receiverName}</strong>
+            </CardContent>
             <CardContent>
               <Button
-                className="w-full hover:bg-gray-300"
+                className="w-full bg-blue-600 text-white hover:bg-blue-500"
                 onClick={startTransaction}
                 type="button"
               >
@@ -101,17 +102,17 @@ const TransactionModal = ({
           </form>
         </Card>
       )}
-      <div className=" w-full bg-blue-200 ">
+      <div className="w-full bg-blue-200">
         {processing && (
-          <div className="bg-green-100 shadow-lg  ">
-            <div className="p-2 text-xl  ">
-              your transaction is being processed.
-              <br /> close the modal and go to TransactionHistory page to see
+          <div className="bg-green-100 shadow-lg p-4 rounded-md">
+            <div className="text-lg text-gray-800">
+              Your transaction is being processed.
+              <br /> Close the modal and go to the Transaction History page to see
               the result.
             </div>
-            <div>
+            <div className="mt-4">
               <Button 
-              className="p-2"
+                className="p-2 bg-gray-300 hover:bg-gray-400"
                 onClick={() => {
                   setProcessing(false);
                   onClose();

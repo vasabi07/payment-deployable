@@ -28,7 +28,7 @@ const TransactionHistory = () => {
   if (history.state === "loading") {
     return (
       <div className="p-4">
-        <Skeleton className="w-full h-[300px] rounded-md bg-green-800" />
+        <Skeleton className="w-full h-[300px] rounded-md bg-slate-200" />
       </div>
     );
   } else if (history.state === "hasError") {
@@ -36,7 +36,7 @@ const TransactionHistory = () => {
   } else if (history.state === "hasValue") {
     return (
       <div className="bg-white p-4 shadow-md rounded-md">
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-center items-center mb-6">
           <div className="flex flex-col items-center p-4 bg-blue-100 shadow-lg rounded-md w-[220px]">
             <Avatar className="mb-3">
               <AvatarImage
@@ -53,6 +53,7 @@ const TransactionHistory = () => {
         </div>
 
         <div className="space-y-4">
+          <span className="text-2xl font-bold">Transactions</span>
           {history.contents.map((item: tHistory) => (
             <div key={item.id} className="p-4 bg-gray-100 shadow-md rounded-md flex items-center justify-between">
               <span className="font-medium">Sender: {item.senderId}</span>

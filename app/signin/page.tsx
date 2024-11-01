@@ -77,7 +77,7 @@ const Signin = () => {
               className="py-2 border-b-2 outline-none focus: ring-0 focus:border-slate-600 "
               name="password"
               value={data.password}
-              type="text"
+              type="password"
               placeholder="Password"
               onChange={HandleChange}
             />
