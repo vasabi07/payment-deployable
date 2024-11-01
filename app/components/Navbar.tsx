@@ -24,8 +24,10 @@ const Navbar = () => {
   return (
     <div className="flex px-2 items-center justify-between bg-green-200 shadow-md  h-16 border  top-0 z-50">
       <div
-        onClick={() => router.push("/")}
-        className="flex items-center gap-2 text-xl cursor-pointer hover:bg-blue-300 p-2  "
+        onClick={() => {router.push("/")
+          HandleLogout();
+        }}
+        className="flex items-center gap-2 text-xl cursor-pointer hover:bg-green-600 p-2  "
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -44,18 +46,18 @@ const Navbar = () => {
         P2P 
       </div>
       <div className="flex items-center gap-2 text-xl  ">
-        <Link className=" rounded-sm hover:bg-blue-200 p-2" href="/send-money">
+        <Link className=" rounded-sm hover:bg-green-600 p-2" href="/send-money">
           Send Money
         </Link>
 
         <Link
-          className="rounded-sm hover:bg-blue-200 p-2"
+          className="rounded-sm hover:bg-green-600 p-2"
           href="/transaction-history"
         >
           Transaction History
         </Link>
         <Button
-          className="rounded-sm hover:bg-blue-200 p-2"
+          className="rounded-sm hover:bg-green-600 p-2"
           onClick={HandleLogout}
         >
           Logout
